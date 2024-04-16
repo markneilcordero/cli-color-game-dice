@@ -25,7 +25,15 @@ const colorCounts = {
 
 const max_rounds = 5;
 const colors_to_generate = 3;
-const percentage = 0.3;
+const percentage = 0.33;
+
+function printWhiteSpace()
+{
+  for (let x = 0; x < 100; x++)
+  {
+    console.log();
+  }
+}
 
 function generateRandomColor()
 {
@@ -49,7 +57,7 @@ function displayPercentage()
 {
   console.log();
   Object.keys(colorCounts).forEach(color => {
-    console.log(`${color}: ${colorCounts[color]}`);
+    console.log(`${color}: ${colorCounts[color].toFixed(1)}`);
   });
 }
 
@@ -64,6 +72,7 @@ function gamePlay(roundsLeft)
   r1.question('Press x to continue:', (userInput) => {
     if (userInput.trim().toLowerCase() === "x")
     {
+      printWhiteSpace();
       displayResult();
       gamePlay(roundsLeft - 1);
     }
